@@ -4,25 +4,30 @@ import ModelPanel from './components/ModelPanel'
 import BetAlong from './components/BetAlong'
 import AdminQuickStart from './components/AdminQuickStart'
 import SportsBanner from './components/SportsBanner'
+import BackgroundFX from './components/BackgroundFX'
+import Logo from './components/Logo'
 
 function App() {
   const [view, setView] = useState('home')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-950 via-slate-950 to-emerald-950 text-emerald-50">
-      <div className="absolute inset-0 bg-[radial-gradient(600px_circle_at_20%_10%,rgba(16,185,129,0.08),transparent_40%),radial-gradient(700px_circle_at_80%_90%,rgba(52,211,153,0.08),transparent_40%)]" />
+    <div className="min-h-screen relative text-emerald-50">
+      <BackgroundFX />
+
       <div className="relative">
-        <nav className="flex items-center justify-between max-w-6xl mx-auto px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="p-1.5 rounded-lg bg-emerald-700/40 ring-1 ring-emerald-600/40">
-              <div className="w-4 h-4 rounded-full bg-emerald-400" />
+        <nav className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-emerald-950/40 bg-emerald-950/60 border-b border-emerald-800/40">
+          <div className="flex items-center justify-between max-w-6xl mx-auto px-6 py-3">
+            <div className="flex items-center gap-3">
+              <div className="p-1.5 rounded-lg bg-emerald-700/30 ring-1 ring-emerald-600/30">
+                <Logo size={24} />
+              </div>
+              <span className="font-semibold tracking-wide">EvenTheField</span>
             </div>
-            <span className="font-semibold tracking-wide">EvenTheField</span>
-          </div>
-          <div className="flex gap-3 text-sm">
-            <button className={`px-3 py-1 rounded ${view==='home'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('home')}>Home</button>
-            <button className={`px-3 py-1 rounded ${view==='model'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('model')}>True Odds</button>
-            <button className={`px-3 py-1 rounded ${view==='bet-along'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('bet-along')}>Bet-Along</button>
+            <div className="flex gap-2 text-sm">
+              <button className={`px-3 py-1 rounded transition hover:scale-[1.02] ${view==='home'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('home')}>Home</button>
+              <button className={`px-3 py-1 rounded transition hover:scale-[1.02] ${view==='model'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('model')}>True Odds</button>
+              <button className={`px-3 py-1 rounded transition hover:scale-[1.02] ${view==='bet-along'?"bg-emerald-800/40 ring-1 ring-emerald-700/50":"hover:bg-emerald-800/20"}`} onClick={() => setView('bet-along')}>Bet-Along</button>
+            </div>
           </div>
         </nav>
 
